@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>برای طناز ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:Tahoma,Arial,sans-serif;background:linear-gradient(145deg,#fff4f8,#f0e7ff);color:#39263b}
+.card{width:min(92%,450px);padding:34px 25px;text-align:center;background:rgba(255,255,255,.9);border-radius:32px;box-shadow:0 20px 70px rgba(70,35,80,.18);position:relative;z-index:2}
+h1{font-size:29px;margin:8px 0 15px}.emoji{font-size:58px}.hidden{display:none}
+p{font-size:17px;line-height:2;margin:12px 0}
+button{border:0;border-radius:18px;padding:13px 22px;margin:7px 4px;font-size:16px;font-family:inherit;cursor:pointer;background:#d85a91;color:#fff;box-shadow:0 8px 18px rgba(216,90,145,.22);transition:.15s}
+button:hover{transform:translateY(-2px)}button:active{transform:scale(.94)}
+.alt{background:#8d70cf}.muted{font-size:13px;opacity:.6}
+.heart{position:fixed;bottom:-40px;font-size:25px;animation:up 4.5s linear forwards;z-index:1}
+@keyframes up{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+.card.pop{animation:pop .45s}.name{font-weight:800}
+@keyframes pop{50%{transform:scale(1.03)}}
+</style>
+</head>
+<body>
+<div class="card" id="card">
+
+<section id="s1">
+<div class="emoji">📩</div>
+<h1>طناز، این پیام مخصوص خودته.</h1>
+<p>نه تبلیغه، نه امتحانه، نه قراره چیزی ازت بخوام 😂</p>
+<p>فقط یه چیز کوچیکه که احتمالاً باعث میشه یه لبخند بزنی.</p>
+<button onclick="next(1)">خب بفرست ببینم 👀</button>
+</section>
+
+<section id="s2" class="hidden">
+<div class="emoji">😐➡️😂</div>
+<h1>طنازِ عزیز...</h1>
+<p>یه حقیقت علمی کشف شده:</p>
+<p><b>هرچقدر طناز بداخلاق‌تر باشد،</b><br>
+احتمال اینکه همه بفهمن فقط باید یه کم بخندوننش، بیشتر میشه 😂</p>
+<button onclick="next(2)">این توهین بود؟ 😐</button>
+<button class="alt" onclick="next(2)">نه، ادامه بده 😂</button>
+</section>
+
+<section id="s3" class="hidden">
+<div class="emoji">🧪❤️</div>
+<h1>آزمایش «طناز»</h1>
+<p>دانشمندان برای درمان بداخلاقی سه روش پیدا کردن:</p>
+<p>۱. یه شوخی بی‌مزه 😂<br>۲. یه عالمه توجه ❤️<br>۳. فرار کردن قبل از «باشه» 😭</p>
+<p>ولی طبق نتایج آزمایش، روش دوم بیشترین موفقیت رو داشته.</p>
+<button onclick="next(3)">نتیجه آزمایش رو بگو 👀</button>
+</section>
+
+<section id="s4" class="hidden">
+<div class="emoji">🏅❤️</div>
+<h1>طناز، نتیجه اینه:</h1>
+<p>تو رسماً <b>بداخلاق‌ترین آدمِ دوست‌داشتنی</b> این صفحه‌ای 😂❤️</p>
+<p>و متأسفانه برای این مورد هنوز درمان قطعی پیدا نشده...</p>
+<p><b>ولی یه راه هست:</b><br>هر از گاهی یه لبخند بزن تا سیستم هنگ نکنه 😭😂</p>
+<button onclick="surprise()">یه دکمه مشکوک 👀</button>
+<p id="secret" class="hidden"><b>راز صفحه:</b><br>کل این سایت فقط یه بهونه بود که اسم «طناز» چند بار روی صفحه بیاد و یه لبخند ازش بگیره. ❤️</p>
+</section>
+
+</div>
+<script>
+function next(n){
+ document.getElementById('s'+n).classList.add('hidden');
+ document.getElementById('s'+(n+1)).classList.remove('hidden');
+ document.getElementById('card').classList.add('pop');
+ setTimeout(()=>document.getElementById('card').classList.remove('pop'),500);
+ hearts();
+}
+function surprise(){
+ document.getElementById('secret').classList.remove('hidden');
+ hearts();
+}
+function hearts(){
+ const colors=['❤️','🩷','🧡','💛','💚','🩵','💙','💜'];
+ for(let i=0;i<16;i++){
+  const h=document.createElement('div');
+  h.className='heart';
+  h.textContent=colors[Math.floor(Math.random()*colors.length)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.animationDuration=(3+Math.random()*3)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+ }
+}
+</script>
+</body>
+</html>
